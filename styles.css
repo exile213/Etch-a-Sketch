@@ -1,0 +1,22 @@
+*{
+    font-family: system-ui;
+    margin:0;
+}
+
+body html{
+    width:100%;
+    height:100%;
+}
+
+body {
+    background:#7752FE
+}
+
+.title{
+    padding:10px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color:#C2D9FF;
+    background:#190482;
+}
