@@ -10,7 +10,7 @@ body, html{
 }
 
 body {
-    background:#7752FE
+    background:#427D9D;
 }
 
 .title{
@@ -18,14 +18,14 @@ body {
     text-align: center;
     font-size: 3rem;
     font-weight: 800;
-    color:#C2D9FF;
-    background:#190482;
+    color:#DDF2FD;
+    background:#164863;
 }
 
 .leftSide{
     width:40%;
     height:100%;
-    background:#8E8FFA;
+    background:#DDF2FD;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@ body {
 .leftContainer{
     width:60%;
     height:80%;
-    background:#7752FE;
+    background:#427D9D;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,13 +54,18 @@ body {
 
 button{
     width: 80%;
-    background-color:#C2D9FF;
-    color:#190482;
+    background-color:#427D9D;
+    color:#DDF2FD;
     margin:20px;
     padding:20px;
     border-radius: 20px;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.627);
     font-size: 1rem;
+}
+
+button:hover{
+    background-color:#DDF2FD;
+    color:#427D9D;
 }
 
 .colorBox{
