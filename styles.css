@@ -101,8 +101,6 @@ input{
 }
 
 .gridBox{
-    width:1fr;
-    height: 1fr;
     border: solid 1px black;
 }
 
