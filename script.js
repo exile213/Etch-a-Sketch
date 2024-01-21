@@ -6,7 +6,7 @@ var sliderval  = document.getElementById("gridslider");
 
 sliderval.addEventListener("input", function(){
 
-    gridtext.textContent=sliderval.value;
+    gridtext.textContent=sliderval.value +" x "+ sliderval.value;
     
     rightCont.innerHTML = "";
 
