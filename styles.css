@@ -54,13 +54,24 @@ body {
 }
 
 .colorBox{
-    width:200px;
+    width:150px;
     height:50%;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.627);
+
 }
 
+/*Removes the border for the color input*/
+input[type="color"] {
+    border-radius: 100%;
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 100%;
+}
+
+/*-----------------------------*/
 button{
     width: 80%;
     height:20%;
@@ -77,9 +88,6 @@ button:hover{
     color:#427D9D;
 }
 
-.colorBox{
-    flex-grow: 1;
-}
 .rightSide{
     width: 60%;
     display: flex;
@@ -102,6 +110,9 @@ input{
     height:30px;
 }
 
+.gridBox{
+    border: solid 1px black;
+}
 .gridBox:hover{
     background:rgb(209, 208, 208);
 }

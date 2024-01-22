@@ -1,15 +1,17 @@
 
-//grid creation variable
+//GRID BOX CREATION SECTION---------------------
 var rightCont = document.getElementById("rightContainer");
 var gridtext = document.getElementById("gridNum");
 var sliderval  = document.getElementById("gridslider");
 
 sliderval.addEventListener("input", function(){
-
+    //shows the slidervalue as text
     gridtext.textContent=sliderval.value +" x "+ sliderval.value;
     
+    //resets the and removes any class in the container
     rightCont.innerHTML = "";
 
+    //Creates rows and columns based on the slidervalue
     rightCont.style.gridTemplateColumns = "repeat("+ sliderval.value + ",1fr)";
     rightCont.style.gridTemplateRows = "repeat("+ sliderval.value + ",1fr)";
     
@@ -20,5 +22,8 @@ sliderval.addEventListener("input", function(){
         newBox.classList.add("gridBox");
         rightCont.appendChild(newBox);
     }
-});
+});//----------------------------------------------
 
+
+
+//Color Picker Section--------------------
