@@ -1,3 +1,5 @@
+//Global Variables
+let colorVar = "";
 
 //GRID BOX CREATION SECTION---------------------
 var rightCont = document.getElementById("rightContainer");
@@ -25,5 +27,14 @@ sliderval.addEventListener("input", function(){
 });//----------------------------------------------
 
 
+//COLOR PICKER SECTION-------------------------------------
+var colorPicker = document.getElementById("colorPicker");
 
-//Color Picker Section--------------------
+//if user uses color picker
+colorPicker.addEventListener("input",function(){
+    //sets the color of the color picker to a variable
+    colorVar = colorPicker.value;
+
+});//---------------------------------------------------------
+
+
