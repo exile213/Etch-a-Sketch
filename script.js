@@ -1,6 +1,10 @@
 //Global Variables
 let colorVar = "";
 
+
+//Predefined function calls
+changeCol();
+
 //GRID BOX CREATION SECTION---------------------
 var rightCont = document.getElementById("rightContainer");
 var gridtext = document.getElementById("gridNum");
@@ -24,6 +28,8 @@ sliderval.addEventListener("input", function(){
         newBox.classList.add("gridBox");
         rightCont.appendChild(newBox);
     }
+
+    //Calls the changecolor function
     changeCol();
 });//----------------------------------------------
 
