@@ -24,6 +24,7 @@ sliderval.addEventListener("input", function(){
         newBox.classList.add("gridBox");
         rightCont.appendChild(newBox);
     }
+    changeCol();
 });//----------------------------------------------
 
 
@@ -38,3 +39,14 @@ colorPicker.addEventListener("input",function(){
 });//---------------------------------------------------------
 
 
+//GRIDBOX CLICK CHANGE COLOR SECTION---------------------------------------
+function changeCol() { 
+    var gridBox =  document.getElementsByClassName('gridBox');
+    for(let i =0; i< gridBox.length;i++){
+        gridBox[i].addEventListener('mousedown',function(){
+            gridBox[i].style.backgroundColor = colorVar;
+        });
+    };
+ }
+
+//--------------------------------------

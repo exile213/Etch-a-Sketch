@@ -116,6 +116,7 @@ input{
 .gridBox:hover{
     background:rgb(209, 208, 208);
 }
+
 #gridNum {
     font-size: 5vh;
     color:white
