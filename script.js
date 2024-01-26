@@ -1,41 +1,21 @@
 //Global Variables
 let colorVar = "";
-
+let rightCont = document.getElementById("rightContainer");
+let gridtext = document.getElementById("gridNum");
+let sliderval  = document.getElementById("gridslider");
+let colorPicker = document.getElementById("colorPicker");
 
 //Predefined function calls
 changeCol();
 
-//GRID BOX CREATION SECTION---------------------
-var rightCont = document.getElementById("rightContainer");
-var gridtext = document.getElementById("gridNum");
-var sliderval  = document.getElementById("gridslider");
 
+
+//EVENT LISTENER SECTION---------------------------------
+
+// if user uses the slider
 sliderval.addEventListener("input", function(){
-    //shows the slidervalue as text
-    gridtext.textContent=sliderval.value +" x "+ sliderval.value;
-    
-    //resets the and removes any class in the container
-    rightCont.innerHTML = "";
-
-    //Creates rows and columns based on the slidervalue
-    rightCont.style.gridTemplateColumns = "repeat("+ sliderval.value + ",1fr)";
-    rightCont.style.gridTemplateRows = "repeat("+ sliderval.value + ",1fr)";
-    
-
-    // creates div grid boxes and fills the columns and rows
-    for(let i =1; i<=sliderval.value*sliderval.value;i++){
-        var newBox = document.createElement("div");
-        newBox.classList.add("gridBox");
-        rightCont.appendChild(newBox);
-    }
-
-    //Calls the changecolor function
-    changeCol();
+        createGrid();
 });//----------------------------------------------
-
-
-//COLOR PICKER SECTION-------------------------------------
-var colorPicker = document.getElementById("colorPicker");
 
 //if user uses color picker
 colorPicker.addEventListener("input",function(){
@@ -45,7 +25,37 @@ colorPicker.addEventListener("input",function(){
 });//---------------------------------------------------------
 
 
-//GRIDBOX CLICK CHANGE COLOR SECTION---------------------------------------
+
+//FUNCTIONS SECTION--------------------------------
+
+//GRIDBOX CREATION FUNCTION------------------------------
+
+function createGrid(){
+        //shows the slidervalue as text
+        gridtext.textContent=sliderval.value +" x "+ sliderval.value;
+    
+        //resets the and removes any class in the container
+        rightCont.innerHTML = "";
+    
+        //Creates rows and columns based on the slidervalue
+        rightCont.style.gridTemplateColumns = "repeat("+ sliderval.value + ",1fr)";
+        rightCont.style.gridTemplateRows = "repeat("+ sliderval.value + ",1fr)";
+        
+    
+        // creates div grid boxes and fills the columns and rows
+        for(let i =1; i<=sliderval.value*sliderval.value;i++){
+            var newBox = document.createElement("div");
+            newBox.classList.add("gridBox");
+            rightCont.appendChild(newBox);
+        }
+    
+        //Calls the changecolor function
+        changeCol();
+    };//-------------
+
+
+
+//GRIDBOX CLICK CHANGE COLOR FUNCTION---------------------------------------
 function changeCol() { 
     var gridBox =  document.getElementsByClassName('gridBox');
     for(let i =0; i< gridBox.length;i++){
@@ -55,4 +65,4 @@ function changeCol() {
     };
  }
 
-//--------------------------------------
+//----------------------------------------------------------------------
