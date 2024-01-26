@@ -29,7 +29,7 @@ changeCol();
 sliderval.addEventListener("input", function(){
         createGrid();
 
-        //resets all the active buttons
+        //resets all the active buttons when using slider
         colorBut.className = "buttons";
         randColorBut.className ="buttons";
         eraseBut.className ="buttons";
