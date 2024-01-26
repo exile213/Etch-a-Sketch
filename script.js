@@ -28,6 +28,12 @@ changeCol();
 // if user uses the slider
 sliderval.addEventListener("input", function(){
         createGrid();
+
+        //resets all the active buttons
+        colorBut.className = "buttons";
+        randColorBut.className ="buttons";
+        eraseBut.className ="buttons";
+        clearBut.className ="buttons";
 });
 
 //if user uses color picker
@@ -91,8 +97,6 @@ function createGrid(){
             rightCont.appendChild(newBox);
         }
     
-        //Calls the changecolor function
-        changeCol();
     };//-------------
 
 
@@ -100,17 +104,45 @@ function createGrid(){
 //GRIDBOX CLICK CHANGE COLOR FUNCTION---------------------------------------
 function changeCol() { 
     var gridBox =  document.getElementsByClassName('gridBox');
-    for(let i =0; i< gridBox.length;i++){
-        gridBox[i].addEventListener('mousedown',function(){
-            gridBox[i].style.backgroundColor = colorVar;
-        });
-    };
+    //if the color button is active
+    if (buttonActive==1){
+        for(let i =0; i< gridBox.length;i++){
+            gridBox[i].addEventListener('mousedown',function(){
+                gridBox[i].style.backgroundColor = colorVar;
+            });
+        };
+    }
+    //if the random color button is active
+    else if(buttonActive==2){
+         for(let i =0; i< gridBox.length;i++){
+            gridBox[i].addEventListener('mousedown',function(){
+                //Hex Color randomizer 
+                gridBox[i].style.backgroundColor = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+            });
+        };
+    }
+
+    // if the eraser button is active
+    else if(buttonActive==3){
+        for(let i =0; i< gridBox.length;i++){
+           gridBox[i].addEventListener('mousedown',function(){ 
+               gridBox[i].style.backgroundColor = "#FFFFFF";
+           });
+       };
+   }
+  
+    // if the clear button is active
+   else if(buttonActive==4){
+        for(let i =0; i< gridBox.length;i++){ 
+               gridBox[i].style.backgroundColor = "#FFFFFF";
+           };
+       };
  }
 
 //----------------------------------------------------------------------
 
 
-//BUTTON ACTIVE FUNCTION
+//BUTTON ACTIVE FUNCTION-------------------------------------------
 function activeButton() {
     switch(buttonActive){
         case 1:
@@ -118,6 +150,7 @@ function activeButton() {
             randColorBut.className ="buttons";
             eraseBut.className ="buttons";
             clearBut.className ="buttons";
+            changeCol();
             break;
         
         case 2:
@@ -125,6 +158,7 @@ function activeButton() {
             randColorBut.className ="buttons-active";
             eraseBut.className ="buttons";
             clearBut.className ="buttons";
+            changeCol();
             break;
 
         case 3:
@@ -132,6 +166,7 @@ function activeButton() {
             randColorBut.className ="buttons";
             eraseBut.className ="buttons-active";
             clearBut.className ="buttons";
+            changeCol();
             break;
         
         case 4:
@@ -139,6 +174,7 @@ function activeButton() {
             randColorBut.className ="buttons";
             eraseBut.className ="buttons";
             clearBut.className ="buttons-active";
+            changeCol();
             break;
     }
-}
+}//------------------------------------------------------
