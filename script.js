@@ -5,6 +5,7 @@ let rightCont = document.getElementById("rightContainer");
 let gridtext = document.getElementById("gridNum");
 let sliderval  = document.getElementById("gridslider");
 
+
 //Button variables
 let buttonActive=0;
 let colorBut = document.getElementById("colorBut");
@@ -65,7 +66,6 @@ eraseBut.addEventListener('click',function(){
 
 //if user clicks on the erase button
 clearBut.addEventListener('click',function(){
-    //makes the button remain active after click
     buttonActive =4;
     activeButton();
 });
@@ -104,18 +104,23 @@ function createGrid(){
 //GRIDBOX CLICK CHANGE COLOR FUNCTION---------------------------------------
 function changeCol() { 
     var gridBox =  document.getElementsByClassName('gridBox');
+    var mouseDown = document.getElementById('mouseDown');
+
     //if the color button is active
     if (buttonActive==1){
         for(let i =0; i< gridBox.length;i++){
-            gridBox[i].addEventListener('mousedown',function(){
-                gridBox[i].style.backgroundColor = colorVar;
-            });
+
+              gridBox[i].addEventListener('mouseover', function(e) {
+
+                    gridBox[i].style.backgroundColor = colorVar;
+                });
+            
         };
     }
     //if the random color button is active
     else if(buttonActive==2){
          for(let i =0; i< gridBox.length;i++){
-            gridBox[i].addEventListener('mousedown',function(){
+            gridBox[i].addEventListener('mouseover',function(){
                 //Hex Color randomizer 
                 gridBox[i].style.backgroundColor = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
             });
@@ -125,7 +130,8 @@ function changeCol() {
     // if the eraser button is active
     else if(buttonActive==3){
         for(let i =0; i< gridBox.length;i++){
-           gridBox[i].addEventListener('mousedown',function(){ 
+           gridBox[i].addEventListener('mouseover',function(){ 
+            
                gridBox[i].style.backgroundColor = "#FFFFFF";
            });
        };
@@ -170,10 +176,6 @@ function activeButton() {
             break;
         
         case 4:
-            colorBut.className = "buttons";
-            randColorBut.className ="buttons";
-            eraseBut.className ="buttons";
-            clearBut.className ="buttons-active";
             changeCol();
             break;
     }
