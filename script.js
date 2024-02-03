@@ -104,15 +104,25 @@ function createGrid(){
 //GRIDBOX CLICK CHANGE COLOR FUNCTION---------------------------------------
 function changeCol() { 
     var gridBox =  document.getElementsByClassName('gridBox');
-    var mouseDown = document.getElementById('mouseDown');
+    var canDraw = false;
+
+    //Click allows the user to draw, Clicking again allows user to not draw
+    rightCont.addEventListener("click",function(){
+        if(canDraw){
+            canDraw = false;
+        }
+        else{
+            canDraw = true;
+        }
+    })
 
     //if the color button is active
     if (buttonActive==1){
         for(let i =0; i< gridBox.length;i++){
-
-              gridBox[i].addEventListener('mouseover', function(e) {
-
+              gridBox[i].addEventListener('mouseover', function() {
+                    if(canDraw){
                     gridBox[i].style.backgroundColor = colorVar;
+                    }
                 });
             
         };
@@ -121,8 +131,10 @@ function changeCol() {
     else if(buttonActive==2){
          for(let i =0; i< gridBox.length;i++){
             gridBox[i].addEventListener('mouseover',function(){
+                if(canDraw){
                 //Hex Color randomizer 
                 gridBox[i].style.backgroundColor = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+                }
             });
         };
     }
@@ -131,8 +143,9 @@ function changeCol() {
     else if(buttonActive==3){
         for(let i =0; i< gridBox.length;i++){
            gridBox[i].addEventListener('mouseover',function(){ 
-            
+            if(canDraw){
                gridBox[i].style.backgroundColor = "#FFFFFF";
+            }
            });
        };
    }
