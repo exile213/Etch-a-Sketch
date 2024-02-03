@@ -4,6 +4,7 @@
 let rightCont = document.getElementById("rightContainer");
 let gridtext = document.getElementById("gridNum");
 let sliderval  = document.getElementById("gridslider");
+let canDraw = false;
 
 
 //Button variables
@@ -71,6 +72,18 @@ clearBut.addEventListener('click',function(){
 });
 
 
+ //Click allows the user to draw, Clicking again allows user to not draw
+rightCont.addEventListener('click',function(){
+
+    if(buttonActive > 0){
+        if(canDraw){
+            canDraw= !canDraw;
+        }
+        else if(!canDraw){
+            canDraw = true;
+        }
+    }
+});
 
 
 
@@ -104,17 +117,8 @@ function createGrid(){
 //GRIDBOX CLICK CHANGE COLOR FUNCTION---------------------------------------
 function changeCol() { 
     var gridBox =  document.getElementsByClassName('gridBox');
-    var canDraw = false;
 
     //Click allows the user to draw, Clicking again allows user to not draw
-    rightCont.addEventListener("click",function(){
-        if(canDraw){
-            canDraw = false;
-        }
-        else{
-            canDraw = true;
-        }
-    })
 
     //if the color button is active
     if (buttonActive==1){
@@ -126,6 +130,7 @@ function changeCol() {
                 });
             
         };
+        
     }
     //if the random color button is active
     else if(buttonActive==2){
@@ -144,7 +149,7 @@ function changeCol() {
         for(let i =0; i< gridBox.length;i++){
            gridBox[i].addEventListener('mouseover',function(){ 
             if(canDraw){
-               gridBox[i].style.backgroundColor = "#FFFFFF";
+               gridBox[i].style.backgroundColor = "";
             }
            });
        };
@@ -153,7 +158,7 @@ function changeCol() {
     // if the clear button is active
    else if(buttonActive==4){
         for(let i =0; i< gridBox.length;i++){ 
-               gridBox[i].style.backgroundColor = "#FFFFFF";
+               gridBox[i].style.backgroundColor = "";
            };
        };
  }
@@ -188,7 +193,8 @@ function activeButton() {
             changeCol();
             break;
         
-        case 4:
+        case 4:          
+
             changeCol();
             break;
     }
